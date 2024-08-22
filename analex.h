@@ -10,10 +10,12 @@
 int tokenval;
 
 int analex(){
-    char ch;
-
-    fflush(stdin);
+    int ch;
+    tokenval = -1;
     ch = getchar();
+
+  //  fflush(stdin);
+   // ch = getchar();
 
     if(ch == '+')
         return '+';
@@ -37,6 +39,14 @@ int analex(){
         return ';';
 
     if(isdigit(ch)){
+    tokenval = ch -'0';
+    ch = getchar();
+
+    while(isdigit(ch)){
+    tokenval = tokenval*10 + ch - '0';
+    ch = getchar();
+    }
+    ungetc(ch,stdin);
         return NUM;
     }
 

@@ -90,11 +90,12 @@ void F()
 {
     switch(token){
         case NUM:
+        printf("%d", tokenval);
         push(token);
         consumir(NUM);
         break;
 
-       case '(':    
+       case '(':
         push(token);
         consumir('(');
         E();
@@ -113,12 +114,10 @@ int main(){
     else{
         printf("\nErro na main!");
         erro_sint();
-         char char1 = '3';
-    char char2 = '7';
-    
-    int num = (char1 - '0') * 10 + (char2 - '0');
-    
-    printf("Número combinado: %d\n", num);
+
+
+    printf("Número combinado: %d\n", NUM);
     }
     return 0;
+
 }
